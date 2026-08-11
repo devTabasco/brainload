@@ -93,6 +93,26 @@ flows first, the rest second. No filler commentary around it. End with exactly t
 offers: walk any part of the reading tour together, or start the challenge
 ("say **challenge me**"). Do not start Phase 3 without an explicit go.
 
+### Rendering — terminals don't draw mermaid
+
+Assume the chat surface shows diagram *source*, not diagrams. Compensate, in order:
+
+1. **ASCII first in chat.** For small diagrams (≤6 nodes), lead with a compact
+   ASCII sketch; keep the mermaid block beneath it for the saved doc. For larger
+   maps, give a one-line ASCII spine (`GUI → API → parser → catalog → sources`)
+   above the mermaid block so the shape is graspable without rendering.
+2. **Publish if a rendering surface exists.** If an artifact/page-publishing tool
+   is available in the session, publish the saved model doc there after Phase 2
+   and hand the user the link — mermaid renders natively on such pages.
+3. **Otherwise, save an HTML sibling.** Next to the saved `.md`, write
+   `<slug>.html`: a minimal page containing the doc with each diagram in a
+   `<pre class="mermaid">` block and a mermaid CDN `<script>` at the end. Offer
+   (don't auto-run) `open`/`xdg-open` on it, and mention that the `.md` also
+   renders on GitHub and in IDE markdown previews.
+
+Never drop the diagrams because the surface is poor — the saved doc is the durable
+artifact, and the challenge references the map by node names.
+
 ## Saving
 
 Follow the saving protocol in SKILL.md (ask once per repo: committed / gitignored /

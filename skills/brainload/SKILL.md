@@ -85,8 +85,10 @@ map, and carry drift weights into Phases 2–3. If no plan exists, skip silently
 ### Phase 2 — Model & guide → read `references/mental-model.md`
 
 Build the mental model document from `templates/model-doc.md`, calibrated per
-Phase 0, and present it in chat. Save it per **Saving** below. End by offering two
-paths: walk the reading tour together, or start the challenge.
+Phase 0, and present it in chat. Terminals show mermaid as source — follow the
+reference's rendering guidance (ASCII sketch in chat; publish or save an HTML
+sibling so the user can see the diagrams rendered). Save it per **Saving** below.
+End by offering two paths: walk the reading tour together, or start the challenge.
 
 ### Phase 3 — Challenge → read `references/challenge.md`
 
