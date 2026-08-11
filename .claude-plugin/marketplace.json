@@ -1,0 +1,13 @@
+{
+  "name": "brainload",
+  "owner": {
+    "name": "devTabasco"
+  },
+  "plugins": [
+    {
+      "name": "brainload",
+      "source": "./",
+      "description": "Build and verify a mental model of AI-generated code: architecture map, learning guide, adaptive challenge session, and planned-vs-actual drift detection."
+    }
+  ]
+}

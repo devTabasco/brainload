@@ -1,0 +1,20 @@
+{
+  "name": "brainload",
+  "version": "0.1.0",
+  "description": "Mental model builder for AI-generated code. AI writes the code; Brainload writes it into your brain.",
+  "author": {
+    "name": "devTabasco"
+  },
+  "homepage": "https://github.com/devTabasco/brainload",
+  "repository": "https://github.com/devTabasco/brainload",
+  "license": "MIT",
+  "keywords": [
+    "claude-code",
+    "skill",
+    "mental-model",
+    "learning",
+    "comprehension",
+    "ai-generated-code",
+    "code-understanding"
+  ]
+}
