@@ -44,7 +44,7 @@ Point it at any scope of change:
 ```mermaid
 flowchart LR
     A[Analyze the change] --> D[Mental model + learning guide]
-    A -.-> B[Drift: planned vs actual]
+    A -.-> B[Drift: baseline vs actual]
     B -.-> D
     D --> C[Challenge session]
     C --> Y[Your mental model, reconstructed]
@@ -108,14 +108,14 @@ Failure behavior      ████░░░░░░  gap
 Every misconception is repaired against the real code, then the tree is restated
 with repaired nodes marked **corrected** — the model you actually leave with.
 
-### 4. Drift — planned vs actual (the fun one)
+### 4. Drift — baseline vs actual (the fun one)
 
 Capture your intended architecture *before* the AI builds (`/brainload-baseline`),
 and
 Brainload opens with the only diff that matters:
 
 ```
-PLANNED                          ACTUAL
+BASELINE                         ACTUAL
 
 API → AuthService → DB           API → AuthService → TokenCache → DB
                                                         ↑
@@ -181,6 +181,32 @@ cp -r brainload/skills/* your-project/.claude/skills/
 ```bash
 cp -r brainload/skills/* ~/.claude/skills/
 ```
+
+## First run — three minutes
+
+Right after the AI finishes implementing something for you, type:
+
+```
+/brainload
+```
+
+No arguments needed — it picks up what changed in this session. Then:
+
+1. **Answer the calibration question** (how familiar are you with this area?) —
+   the guide adjusts to you.
+2. **Read the guide it prints** — system map, key concepts, invariants, and a
+   reading tour of the ~20% actually worth your eyes.
+3. **Say `challenge me`** when ready — 6–9 free-form questions, one at a time.
+4. **Meet your mental model** — reconstructed from your answers, drawn over
+   reality, gaps repaired against real `file:line`s.
+
+Short on time? `/brainload --quick` (3–5 questions). Just want the architecture
+map? `/brainload --map-only`. Not sure what to point it at? Give it words:
+`/brainload "the auth feature"`.
+
+When you're ready to level up the loop: run `/brainload-baseline <feature>`
+*before* the AI implements — the next `/brainload` will open with exactly what
+drifted from your intent.
 
 ## Usage
 
