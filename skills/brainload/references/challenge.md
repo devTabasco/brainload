@@ -145,6 +145,22 @@ Rules:
 - Do not soften grades to be kind, and do not inflate the final report. The report
   is only useful if it is true. Kindness lives in tone, not in scores.
 
+## The model ledger — capture what the developer asserts
+
+Grading scores answers; the ledger captures the model behind them. Alongside every
+grade, record internally (never shown mid-session):
+
+- **Asserted elements** — each component, edge, state location, and causal link the
+  developer's answer names or relies on, tagged correct / incorrect as graded
+- **Untouched elements** — ground-truth map elements no answer has yet demonstrated
+
+One answer often yields several entries: "the middleware checks Redis on every
+request" is one graded answer but two ledger rows — the false edge
+`middleware → Redis`, and the true property it displaced (the middleware is
+deliberately store-free). The ledger is Phase 4's raw material: it is what turns
+the final report from a list of scores into a diagram of the developer's actual
+mental model laid over reality (solid / gap / misconception).
+
 ## Tone
 
 Sparring partner, not examiner. Brief, earned affirmations ("Exactly — and that's

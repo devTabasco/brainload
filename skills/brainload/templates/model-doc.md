@@ -100,5 +100,7 @@ The remaining ~N lines are wiring and boilerplate: <one-line dismissal>.
 1.
 
 <!-- ## Challenge log — appended by Phase 4 after each challenge session:
-     status table (solid / shaky / missing / confident-wrong / unverified),
-     repairs made, date. -->
+     reconstructed mental model (concept tree with 🟢 solid / 🟡 shaky / ⚪ gap /
+     🔴 misconception, coverage meter, ground-truth map annotated solid/gap/
+     misconception), status table (solid / shaky / missing / confident-wrong /
+     unverified), repairs made, date. -->

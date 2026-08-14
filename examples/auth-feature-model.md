@@ -170,6 +170,38 @@ between. This change uses TTL as the *only* session-expiry mechanism
 | Family revocation rationale (WHY) | solid | Supplied the missing "reason not evident" — matches OAuth reuse-detection guidance |
 | Multi-device logout (EXTEND) | unverified | Session ended early |
 
+**Your mental model — reconstructed from the answers**
+
+```
+                    JWT auth + Redis sessions
+                              │
+          ┌───────────────────┴───────────────────┐
+          ▼                                       ▼
+   Access token (15m JWT)                 Refresh token (opaque, Redis)
+        🟢 solid                                🟢 solid
+          │                                       │
+   Middleware boundary                       Token rotation
+        🟢 solid                                🟢 solid
+          │                                       │
+   Logout semantics                     Reuse → family revocation
+        🔴 misconception                        🟢 solid
+   "logout immediately kills                      │
+    the access token"                      Redis-down refresh
+                                                🟡 shaky
+```
+
+```
+Login flow                ██████████  solid
+Middleware boundary       ██████████  solid
+Rotation & families       ██████████  solid
+Redis-down behavior       ██████░░░░  shaky
+Logout semantics          ██░░░░░░░░  misconception → corrected below
+Multi-device logout       ░░░░░░░░░░  unverified
+```
+
+Strongest in the token lifecycle; the gap cluster is failure behavior (Redis-down,
+logout aftermath) — exactly the store-free-middleware consequences.
+
 **Repairs**
 
 - **Logout semantics** — logout is `DEL session:{hash}` (`auth.service.ts:88`);

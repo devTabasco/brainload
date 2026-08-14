@@ -95,19 +95,37 @@ End by offering two paths: walk the reading tour together, or start the challeng
 Wait for explicit readiness ("challenge me", "ready", "go"). Then run the adaptive
 interrogation exactly as the reference prescribes: answer key prepared and verified
 first, one question per turn, hint ladder, honest per-concept grading
-(solid / shaky / missing / confident-wrong).
+(solid / shaky / missing / confident-wrong), and the model ledger — every component,
+edge, and causal link the developer's answers assert — kept for Phase 4's
+reconstruction.
 
-### Phase 4 — Repair & record (inline, no reference file)
+### Phase 4 — Reconstruct, repair & record (inline, no reference file)
 
-1. **Report** — a compact table of every targeted concept and its status, then one
-   line on the overall shape ("your model is strongest in X; the gap cluster is Y").
-2. **Repair** each non-solid concept, worst first (confident-wrong → missing → shaky):
+1. **Reconstruct** — rebuild the developer's mental model from the model ledger
+   (`references/challenge.md`): what their answers actually demonstrated, laid over
+   the ground truth. Classify every element: **solid** (asserted and correct),
+   **shaky** (right area, foggy mechanism), **gap** (real, but never demonstrated),
+   **misconception** (asserted and wrong — confident-wrong lives here).
+2. **Present the model** — the session's centerpiece; never skip it. In chat, two
+   ASCII views:
+   - a concept tree of the change, each node marked 🟢 solid · 🟡 shaky · ⚪ gap ·
+     🔴 misconception, quoting each misconception's false belief in one line
+     beneath its node
+   - a coverage meter per concept area
+     (`Token lifecycle   ████████░░  solid`)
+   Then one line on the overall shape ("strongest in X; the gap cluster is Y").
+   For the saved doc, also render the ground-truth system map annotated with
+   classDefs `solid` / `gap` (dashed) / `misconception` (red).
+3. **Repair** each non-solid concept, worst first (misconception → gap → shaky):
    explain the true mechanism anchored to `file:line`, with a small diagram if the
    gap is flow-shaped. Offer — don't force — one quick lock-in variant question per
-   repaired concept to confirm the repair took.
-3. **Record** — update the saved model doc: set `status: challenged`, append a
-   `## Challenge log — <date>` section with the status table and repairs made.
-4. **Close** — suggest rerunning `/brainload --challenge-only <slug>` in a few days
+   repaired concept to confirm the repair took. After repairs, restate the tree
+   with repaired nodes marked **corrected** — the updated mental model the
+   developer leaves with.
+4. **Record** — update the saved model doc: set `status: challenged`, append a
+   `## Challenge log — <date>` section with the reconstructed model (tree,
+   coverage meter, annotated map), the status table, and repairs made.
+5. **Close** — suggest rerunning `/brainload --challenge-only <slug>` in a few days
    (target previously non-solid concepts first). If drift ran, offer to promote the
    actual model to the new planned baseline in `.brainload/planned/`.
 

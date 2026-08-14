@@ -47,7 +47,8 @@ flowchart LR
     A -.-> B[Drift: planned vs actual]
     B -.-> D
     D --> C[Challenge session]
-    C --> R[Gap repair]
+    C --> Y[Your mental model, reconstructed]
+    Y --> R[Gap repair]
     R --> M[(Saved model doc)]
 ```
 
@@ -86,6 +87,26 @@ One question at a time. Free-form answers — never multiple choice. Adaptive
 difficulty. Honest grading (`solid / shaky / missing / confident-wrong`). Wrong
 answers are the point: each one locates a real gap, which gets repaired with an
 explanation anchored to actual `file:line`s.
+
+And the session ends with **your mental model, drawn** — reconstructed from your
+answers and laid over reality:
+
+```
+YOUR MENTAL MODEL — auth feature
+
+     Access token ─── 🟢 solid ─── Middleware boundary 🟢 solid
+                                          │
+                                   Logout semantics 🔴 misconception
+                                   "logout immediately kills the access token"
+     Refresh token ── 🟢 solid ─── rotation 🟢 ── reuse detection 🟡 shaky
+
+Login flow            ██████████  solid
+Rotation & reuse      ██████░░░░  shaky
+Failure behavior      ████░░░░░░  gap
+```
+
+Every misconception is repaired against the real code, then the tree is restated
+with repaired nodes marked **corrected** — the model you actually leave with.
 
 ### 4. Drift — planned vs actual (the fun one)
 
