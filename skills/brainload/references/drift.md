@@ -1,24 +1,24 @@
 # Phase 1.5 — Drift: planned vs actual
 
-When a planned model exists, the highest-value question is not *"what does the
+When a baseline exists, the highest-value question is not *"what does the
 system do?"* but *"where does reality differ from the model already in the
 developer's head?"* The developer's mental model is presumed to equal the plan —
 drift is exactly where that presumption is wrong, so drift is where the session
 should concentrate.
 
-## Find the plan
+## Find the baseline
 
 Look in this order; use the first hit:
 
-1. `.brainload/planned/` — baselines captured by `/brainload-plan`
+1. `.brainload/baseline/` — baselines captured by `/brainload-baseline`
 2. A doc the user points to
 3. Conventional locations: `PLAN.md`, `docs/` files matching prd / plan / design /
    architecture / rfc, recently modified `.md` files describing this feature
 4. A plan approved earlier in this session (plan mode output)
 
-If nothing is found: note "no planned model — skipping drift" in one line and move
-on to Phase 2. Suggest `/brainload-plan` for next time at the **end** of the whole
-run, not mid-flow.
+If nothing is found: note "no baseline — skipping drift" in one line and move
+on to Phase 2. Suggest `/brainload-baseline` for next time at the **end** of the
+whole run, not mid-flow.
 
 ## Compare
 
@@ -57,5 +57,5 @@ point of drift is that the developer reads *this* instead of a thousand-line dif
   for reverting it"). Each MISSING item gets a SIMULATE ("the plan's rate limiter
   never got built — what is the current behavior under N logins/sec?").
 - **Phase 4:** offer to promote the actual model to the new baseline —
-  `.brainload/planned/<slug>.md`, annotated "promoted from actual on <date>" — so
+  `.brainload/baseline/<slug>.md`, annotated "promoted from actual on <date>" — so
   the next iteration diffs against reality, not against a stale plan.

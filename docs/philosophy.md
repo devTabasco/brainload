@@ -66,7 +66,7 @@ tempting, not less dangerous.
 
 **Before development: externalize the model.** Don't tell the agent "build
 something reasonable." Write down the intent — goal, components, flows, invariants —
-even roughly (`/brainload-plan`). That sketch *is* your initial mental model, and
+even roughly (`/brainload-baseline`). That sketch *is* your initial mental model, and
 you're now asking the AI to implement a model you already hold, instead of asking
 yourself to learn a model the AI invented.
 

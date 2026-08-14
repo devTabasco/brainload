@@ -1,6 +1,6 @@
 {
   "name": "brainload",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "Mental model builder for AI-generated code. AI writes the code; Brainload writes it into your brain.",
   "author": {
     "name": "devTabasco"

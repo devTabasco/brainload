@@ -1,16 +1,16 @@
 ---
-name: brainload-plan
+name: brainload-baseline
 description: >-
   Capture the intended architecture before AI implements it. Interviews the developer
-  (or distills an existing PRD/plan document) into a compact planned model —
-  components, flows, invariants, acceptance criteria — saved to .brainload/planned/
+  (or distills an existing PRD/plan document) into a compact baseline model —
+  components, flows, invariants, acceptance criteria — saved to .brainload/baseline/
   as the baseline that /brainload later diffs against the actual implementation to
   show drift. Use before starting AI-assisted implementation of a feature, or when
   the user wants to write down the plan, PRD, or intended architecture first.
 argument-hint: "[feature name, or path to an existing PRD/plan]"
 ---
 
-# Brainload Plan
+# Brainload Baseline
 
 A plan you wrote down is a plan you can drift-check. This skill externalizes the
 developer's *intended* model before any code exists — that document becomes their
@@ -35,16 +35,16 @@ that is ordinary conversation — have it first, then capture the result.
   Rough answers are fine. Follow up **once**, only on empty answers. Do not
   interrogate at plan time — a rough correct sketch beats a beautiful wrong one.
 
-### 2. Normalize into the planned model
+### 2. Normalize into the baseline model
 
 ```markdown
 ---
 name: <feature-slug>
 date: <YYYY-MM-DD>
-status: planned
+status: baseline
 ---
 
-# <Feature> — planned model
+# <Feature> — baseline model
 
 ## Intent
 <goal in ≤3 sentences, non-goals in one line>
@@ -72,19 +72,19 @@ Keep the whole document under ~80 lines. It is a sketch of intent, not a spec.
 
 ### 3. Save
 
-`.brainload/planned/<feature-slug>.md`, following the same ask-once persistence
+`.brainload/baseline/<feature-slug>.md`, following the same ask-once persistence
 rule as `/brainload` (committed / gitignored / chat-only, recorded in
 `.brainload/config.md`).
 
 ### 4. Close
 
 One line: "When the implementation lands, run `/brainload` — it will diff reality
-against this plan."
+against this baseline."
 
 ## Rules
 
 - Capture the developer's intent in their words; don't gold-plate it.
 - Never block implementation on plan completeness — open questions belong in the
   Open questions section, not in more interview rounds.
-- If a planned model for the same feature already exists, offer to update it rather
+- If a baseline for the same feature already exists, offer to update it rather
   than creating a duplicate.

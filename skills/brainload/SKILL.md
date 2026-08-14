@@ -78,7 +78,7 @@ invariants, decisions, failure paths, test coverage, reading list — carries
 
 ### Phase 1.5 — Drift (conditional) → read `references/drift.md`
 
-Only if a planned model exists: `.brainload/planned/`, a PRD/plan/architecture doc,
+Only if a baseline exists: `.brainload/baseline/`, a PRD/plan/architecture doc,
 or a plan approved earlier in this session. Diff planned vs actual, present the drift
 map, and carry drift weights into Phases 2–3. If no plan exists, skip silently.
 
@@ -127,12 +127,12 @@ reconstruction.
    coverage meter, annotated map), the status table, and repairs made.
 5. **Close** — suggest rerunning `/brainload --challenge-only <slug>` in a few days
    (target previously non-solid concepts first). If drift ran, offer to promote the
-   actual model to the new planned baseline in `.brainload/planned/`.
+   actual model to the new baseline in `.brainload/baseline/`.
 
 ## Saving
 
-Model docs live in `.brainload/models/YYYY-MM-DD-<slug>.md`; planned baselines in
-`.brainload/planned/<slug>.md`. On the first save in a repo, ask once how to persist:
+Model docs live in `.brainload/models/YYYY-MM-DD-<slug>.md`; baselines in
+`.brainload/baseline/<slug>.md`. On the first save in a repo, ask once how to persist:
 
 - **committed** — team-visible; doubles as onboarding docs
 - **gitignored** — personal learning notes

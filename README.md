@@ -110,7 +110,8 @@ with repaired nodes marked **corrected** — the model you actually leave with.
 
 ### 4. Drift — planned vs actual (the fun one)
 
-Capture your intended architecture *before* the AI builds (`/brainload-plan`), and
+Capture your intended architecture *before* the AI builds (`/brainload-baseline`),
+and
 Brainload opens with the only diff that matters:
 
 ```
@@ -192,12 +193,12 @@ cp -r brainload/skills/* ~/.claude/skills/
            --map-only         guide only, no challenge
            --challenge-only   reuse a saved model, go straight to questions
 
-/brainload-plan [feature]     capture the intended model before implementation
+/brainload-baseline [feature]     capture the intended model before implementation
 ```
 
 Typical loop:
 
-1. `/brainload-plan payment-retry` — sketch the intent *(optional, enables drift)*
+1. `/brainload-baseline payment-retry` — sketch the intent *(optional, enables drift)*
 2. Let the AI implement; verify correctness with tests / review as usual
 3. `/brainload` — build the mental model, take the challenge
 4. Days later: `/brainload --challenge-only payment-retry` — re-check what was shaky
@@ -209,8 +210,8 @@ Model docs persist so understanding accumulates instead of evaporating:
 ```
 .brainload/
 ├── config.md                        # persistence preference (asked once)
-├── planned/
-│   └── payment-retry.md             # baselines from /brainload-plan
+├── baseline/
+│   └── payment-retry.md             # baselines from /brainload-baseline
 └── models/
     └── 2026-08-11-payment-retry.md  # guide + challenge log, updated on re-runs
 ```
